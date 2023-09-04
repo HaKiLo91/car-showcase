@@ -6,7 +6,7 @@ const Footer = () => {
     return (
         <footer
             className="flex flex-col text-black-100
-        mt-5 border-t border-gray-100
+        mt-5 border-t border-gray-100 max-width
         "
         >
             <div
@@ -46,7 +46,7 @@ const Footer = () => {
                 </div>
             </div>
             <div
-                className="flex justify-between items-center flex-wrap mt-10
+                className="flex justify-center items-center flex-wrap mt-10
                 border-t border-gray-100 sm:px-16 px-6 py-10 gap-10
                 "
             >
