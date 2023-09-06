@@ -32,6 +32,7 @@ const SearchManufacturer = ({
                             width={20}
                             height={20}
                             alt="Car Logo"
+                            className="ml-4"
                         />
                     </Combobox.Button>
 
