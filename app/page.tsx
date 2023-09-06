@@ -10,17 +10,16 @@ export default function Home() {
     const [allCars, setAllCars] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    //search
+    //search states
     const [manufacturer, setManufacturer] = useState("");
     const [model, setModel] = useState("");
 
-    //filter
-
+    //filter states
     const [fuel, setFuel] = useState("");
-    const [year, setYear] = useState(202);
+    const [year, setYear] = useState(2022);
 
-    //pagination
-    const [limit, setLimit] = useState(10);
+    //pagination states
+    const [limit, setLimit] = useState(12);
 
     const getCars = async () => {
         setLoading(true);
@@ -43,6 +42,7 @@ export default function Home() {
     };
 
     useEffect(() => {
+        console.log(fuel, year, limit, manufacturer, model);
         getCars();
     }, [fuel, year, limit, manufacturer, model]);
 
@@ -64,7 +64,7 @@ export default function Home() {
 
                 <div className="home__filters">
                     <SearchBar
-                        setMenufacturer={setManufacturer}
+                        setManufacturer={setManufacturer}
                         setModel={setModel}
                     />
 
@@ -102,8 +102,9 @@ export default function Home() {
                         )}
 
                         <ShowMore
-                            pageNumber={(limit || 10) / 10}
-                            isNext={(limit || 10) > allCars.length}
+                            pageNumber={limit || 10}
+                            isNext={limit > allCars.length}
+                            setLimit={setLimit}
                         />
                     </section>
                 ) : (
